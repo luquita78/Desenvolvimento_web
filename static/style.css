@@ -9,24 +9,35 @@ html, body{
     height: 100%;
 }
 
+*{
+  color: #343a40;
+}
+
+a{
+  text-decoration: none;
+  color: #343a40;
+  
+}
+
 header {
-  background: #E82A2A;
+  background: #FFC107;
   padding: 25px;
+
+ 
 }
-header form input[type=text] {
-  background: #FFF;
-  width: 100%;
-  border-radius: 100px;
-  border: none;
-  padding: 10px 20px;
-}
-header form button {
+input[type="text"]{
+    background: #fff;
+    width: 100%;
+    border-radius: 100px;
+    border: none;
+    padding: 10px 20px;
+  }
+
+form button{
   background: none;
   border: none;
-  position: absolute;
-  right: 25px;
-  width: 24px; 
-  height: 24px;
-  left: 984px;
-  top: 35px;
+  position: relative;
+  right: 40px;
 }
+
+
