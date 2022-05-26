@@ -1,0 +1,38 @@
+html, body{
+    
+    width: 100%;
+    height: 100%;
+    background-color: #c5c5c56c;
+}
+
+*{
+  color: #343a40;
+}
+
+a{
+  text-decoration: none;
+  color: #343a40;
+  
+}
+
+header  {
+  background: #FFC107;
+  padding: 25px;
+
+ 
+}
+
+header .menu .buscador{
+    background: #fff;
+    width: 100%;
+    border-radius: 100px;
+    border: none;
+    padding: 10px 20px;
+  }
+
+form button{
+  background: none;
+  border: none;
+  position: relative;
+  right: 40px;
+}
