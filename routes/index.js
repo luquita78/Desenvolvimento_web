@@ -8,6 +8,6 @@ router.get('/', (req, res) =>{
 })
 
 router.use('/login', loginRouter);
-router.us('/cadastro', cadastroRouter);
+router.use('/form_usuario', cadastroRouter);
 
 module.exports = router;
