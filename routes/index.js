@@ -1,13 +1,13 @@
 const router = require('express').Router();
+const cadastroUsers = require('./form_usuario');
+const login = require('./login');
+const taskControllers = require("../controllers/taskControllers")
 
-const loginRouter = require('./login.js');
-const cadastroRouter = require('./form_usuario.js');
 
-router.get('/', (req, res) =>{
-    return res.render('index');
-})
+router.get('/', taskControllers.getAll)
 
-router.use('/login', loginRouter);
-router.use('/form_usuario', cadastroRouter);
+router.use('/cadastro', cadastroUsers);
+router.use('/login', login);
+
 
 module.exports = router;
