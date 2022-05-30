@@ -2,22 +2,18 @@ const express = require("express");
 const path = require('path');
 const mongoose = require('mongoose');
 const router = require("./routes/index");
+const connectionDb = require("./database/db")
 
+connectionDb();
 const app = express();
-
 app.use(router)
 
 
-mongoose.connect("mongodb+srv://Lucas:ssd030497@projetodw.psodxye.mongodb.net/?retryWrites=true&w=majority",{
-    useNewUrlParser: true, 
-    useUnifiedTopology: true, 
-    
-});
-
+/*
 const db = mongoose.connection;
 db.on("error", (error)=> console.error(error));
 db.once("open", ()=>console.log("Conectado ao banco de dados"));
-
+*/
 
 
 //app.set('views', path.join(__dirname, '/views'));
