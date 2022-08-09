@@ -1,6 +1,5 @@
-
 const getAll = (req,res)=>{
-    res.render("index.html")
+    res.render("index")
 };
 
 module.exports = {

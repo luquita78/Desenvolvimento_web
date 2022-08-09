@@ -1,7 +1,6 @@
 {
   "name": "desenvolvimento_web-1",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -25,5 +24,6 @@
     "mongodb": "^4.6.0",
     "mongoose": "^6.3.4",
     "nodemon": "^2.0.16"
-  }
+  },
+  "description": ""
 }

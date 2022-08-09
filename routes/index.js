@@ -1,13 +1,10 @@
-const router = require('express').Router();
-const cadastroUsers = require('./form_usuario');
-const login = require('./login');
-const homeControllers = require("../controllers/homeControllers")
+const routes = require("express").Router();
+const usuarioControllers = require("../controllers/usuariosControlles");
+const homeControllers = require("../controllers/homeController");
+
+routes.get("/", homeControllers.getAll);
+routes.get("/", usuarioControllers.getAlluser);
+routes.post("/create", usuarioControllers.createUser);
 
 
-router.get('/', homeControllers.getAll)
-
-router.use('/cadastro', cadastroUsers);
-router.use('/login', login);
-
-
-module.exports = router;
+module.exports = routes;

@@ -1,33 +1,26 @@
-const { request } = require("express");
-const connectionDb = require("../database/db");
-const Usuario = connectionDb.Usuario;
+const UsuarioSchema = require("../models/usuarios");
 
-exports.create = (req, res) => {
-  if (!req.body.cpf) {
-    response.status(400).send({ message: "Campo cpf não pode estar vazio!" });
-    return;
+const getAlluser = async (req, res) => {
+  try {
+    const userList = await UsuarioSchema.find();
+    return res.render("index", {userList: userList});
+  } catch (err) {
+    res.status(500).send({ error: err.message });
   }
-  // Cria instância Modelo para usuario
-  const istanceUsuario = new Usuario({
-    nome: request.body.nome,
-    email: request.body.email,
-    cep: request.body.cep,
-    logradouro: request.body.logradouro,
-    numero: request.body.numero,
-    complemento: request.body.complemento,
-    cpf: request.body.cpf,
-    senha: request.body.senha,
-  });
-  // Insere o usuario no Banco de Dados
-  livroInstance
-    .save(istanceUsuario)
-    .then((data) => {
-      response.send(data);
-    })
-    .catch((err) => {
-      response.status(500).send({
-        message:
-          err.message || "Erro durante o processo de inclusão dos dados.",
-      });
-    });
+};
+
+const createUser = async (req, res) => {
+  const usuario = req.body;
+
+  try {
+    await UsuarioSchema.create(usuario);
+    return res.redirect("/");
+  } catch (err) {
+    res.status(500).send({ error: err.message });
+  }
+};
+
+module.exports = {
+  getAlluser,
+  createUser,
 };
