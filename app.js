@@ -1,20 +1,16 @@
-const express = require("express");
-const path = require('path');
-const mongoose = require('mongoose');
-const router = require("./routes/index");
-const connectionDb = require("./database/db")
+ const express = require("express");
+ const path = require("path");
+ const routes = require("./routes/routes")
+ const connectionDb = require("./database/db")
 
-connectionDb();
-const app = express();
+ const app = express();
+ const port = 3000;
+ connectionDb();
+ 
+ app.set("view engine", "ejs");
+ app.use(express.static(path.join(__dirname,"static")));
+ app.use(express.urlencoded())
+ app.use(routes);
 
-app.set('view engine','ejs');
-// app.set('view engine','html');
-// app.engine('html', require('ejs').renderFile);
-
-app.use(express.static(path.join(__dirname, 'static')));
-app.use(express.urlencoded());
-app.use(router);
-
-app.listen(8081, function () {
-    console.log("Servidor rodando na url http://localhost:8081/ ")
-});
+ 
+ app.listen(port, () => console.log("Servidor rodando em http://localhost:3000"));
