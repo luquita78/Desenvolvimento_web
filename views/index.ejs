@@ -15,6 +15,8 @@
 
 <body>
   <header>
+
+    <% if (task == null) { %>
     <form class="row g-3" action="/create" method="post">
         
       <div class="col-auto">
@@ -25,6 +27,19 @@
         <button type="submit" name="adicionar" id="adicionar" class="btn btn-primary mb-3">Inserir Tarefa</button>
       </div>
     </form>
+    <% } else { %>
+    <form class="row g-3" action="/update/<%= task._id %>" method="post">
+        
+      <div class="col-auto">
+        
+        <input type="text" name="task" class="form-control" id="tarefa" value="<%= task.task%>">
+      </div>
+      <div class="col-auto">
+        <button type="submit" name="adicionar" id="adicionar" class="btn btn-primary mb-3">Alterar Tarefa</button>
+      </div>
+    </form>
+ <% }%>
+
   </header>
    
   <section id="tasks">
@@ -32,14 +47,25 @@
       <% tasklist.forEach((task)=> { %>
           <li> 
             <%= task.task %> | <%= task.date.toLocaleDateString('pt-br') %> 
-            <a href="#"><i class="bi bi-pencil-square"></i></a>
-            <a href="#"><i class="bi bi-trash-fill"></i></a>
+            <a href="/getById/<%= task._id %>/update"><i class="bi bi-pencil-square"></i></a>
+            <a href="/getById/<%= task._id %>/delete"><i class="bi bi-trash-fill"></i></a>
             
           </li>
       <% }); %>
     </ul>
   </section>
-      
+  <% if (taskDelete != null) { %>
+  <section id="modal">
+    <div id="card">
+      <a href="/">x</a>
+      <h2>Confirmação</h2>
+      <hr>
+      <p>Deseja realmente apagar a tarefa: <%= taskDelete.task %>?</p>
+      <a href="/">Não</a>
+      <a href="/deleteTask/<%= taskDelete._id %>">Sim</a>
+    </div>
+  </section>
+   <% } %>   
       
 <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
