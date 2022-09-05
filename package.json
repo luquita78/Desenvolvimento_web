@@ -25,5 +25,8 @@
     "mongoose": "^6.3.4",
     "nodemon": "^2.0.16"
   },
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "dotenv": "^16.0.2"
+  }
 }
