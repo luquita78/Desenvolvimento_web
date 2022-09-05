@@ -23,10 +23,11 @@
     "html": "^1.0.0",
     "mongodb": "^4.6.0",
     "mongoose": "^6.3.4",
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "dotenv": "^16.0.2"
   },
   "description": "",
   "devDependencies": {
-    "dotenv": "^16.0.2"
+    
   }
 }
