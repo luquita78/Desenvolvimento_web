@@ -23,15 +23,33 @@
   <header>
 
     <% if (task==null) { %>
-      <%- include('./components/form',{title: "TO DO LIST", action: "create", value: "", namebtn: "Adicionar"})%>
-
       
+
+      <h1>TO DO LIST</h1>
+      <div class="formulario">
+        <form action="/create" method="post">
+
+
+          
+          <input type="text" name="task" id="tarefa" placeholder="Item">
+
+
+          <div><button type="submit" name="adicionar" id="adicionar" class="">Inserir item</button></div>
+
+        </form>
+      </div>
+
       <% } else { %>
 
-      <%- include('./components/form', {title: "Editar Tarefa", action: "update/" + task._id, value: task.task, namebtn: "Editar"})%>
-
+        <h1>Editar itens</h1>
         
-        <% }%> 
+
+          <form action="/update/<%= task._id %>" method="post">
+            <input type="text" name="task"  id="tarefa" value="<%= task.task%>">
+            <button type="submit" name="adicionar" id="adicionar" >Alterar Tarefa</button>
+          </form>
+        
+        <% }%>
 
   </header>
 

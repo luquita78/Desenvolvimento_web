@@ -25,7 +25,7 @@ const createTask = async (req, res) => {
   const task = req.body;
 
   if (!task.task) {
-    message = "Insira um texto para inseria uma tarefa!";
+    message = "Insira um texto para inserir uma tarefa!";
     type = "danger";
     return res.redirect("/");
   }
