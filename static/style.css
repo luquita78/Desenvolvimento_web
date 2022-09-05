@@ -280,7 +280,7 @@ ul li a.check-false::before{
   
 }
 
-@media (max-width : 1024px){
+@media (max-width : 980px){
  .formulario button{
     margin-top: 0.5rem;
     width: 45%;
